@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\course;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -29,7 +29,7 @@ class ActivityFactory extends Factory
                 $startTime = \DateTime::createFromFormat('H:i', $attributes['start_time']);
                 return fake()->dateTimeBetween($startTime->modify('+1 hour'), '20:00')->format('H:i');
             },
-            'course_id' => course::get()->random()->id,
+            'course_id' => Course::get()->random()->id,
         ];
     }
 }

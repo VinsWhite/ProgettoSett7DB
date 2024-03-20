@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
+use App\Models\Activity;
 use App\Models\User;
-use App\Models\activity;
 use Illuminate\Auth\Access\Response;
 
 class ActivityPolicy
@@ -19,7 +19,7 @@ class ActivityPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, activity $activity): bool
+    public function view(User $user, Activity $activity): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ActivityPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, activity $activity): bool
+    public function update(User $user, Activity $activity): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ActivityPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, activity $activity): bool
+    public function delete(User $user, Activity $activity): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ActivityPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, activity $activity): bool
+    public function restore(User $user, Activity $activity): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ActivityPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, activity $activity): bool
+    public function forceDelete(User $user, Activity $activity): bool
     {
         //
     }

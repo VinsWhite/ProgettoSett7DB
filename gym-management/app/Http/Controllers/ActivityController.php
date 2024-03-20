@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\activity;
+use App\Models\Activity;
 use App\Http\Requests\StoreactivityRequest;
 use App\Http\Requests\UpdateactivityRequest;
+use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
@@ -13,7 +14,11 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $activities = DB::table('activities')
+            ->join('courses', 'activities.course_id', '=', 'courses.id')
+            ->select('activities.*', 'courses.name as course_name');
+        
+        return view("viewActivities", ['activities' => $activities->get()]);
     }
 
     /**
@@ -35,15 +40,15 @@ class ActivityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(activity $activity)
+    public function show(Activity $activity)
     {
-        //
+        return view('detailActivities', ['activity' => $activity]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(activity $activity)
+    public function edit(Activity $activity)
     {
         //
     }
@@ -51,7 +56,7 @@ class ActivityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateactivityRequest $request, activity $activity)
+    public function update(UpdateactivityRequest $request, Activity $activity)
     {
         //
     }
@@ -59,7 +64,7 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(activity $activity)
+    public function destroy(Activity $activity)
     {
         //
     }

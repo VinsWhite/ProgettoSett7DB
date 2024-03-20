@@ -15,9 +15,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Homepage') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('gym.index')" :active="request()->routeIs('gym.index')">
+                    <x-nav-link :href="route('course.index')" :active="request()->routeIs('course.index')">
                         {{ __('Courses') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('activity.index')" :active="request()->routeIs('activity.index')">
+                        {{ __('Activities') }}
+                    </x-nav-link>
+                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
+                        {{ __('Reservations') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 

@@ -1,4 +1,4 @@
-<footer class="bg-secondary-subtle py-4">
+<footer class="bg-secondary-subtle py-4 mt-5">
     <div class="d-flex flex-row justify-content-around text-secondary underline">
         <div>
             <p>Gestione di una palestra in Laravel</p>

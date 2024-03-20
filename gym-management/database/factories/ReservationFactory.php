@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\course;
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +22,7 @@ class ReservationFactory extends Factory
 
         return [
             'status' => fake()->randomElement($status),
-            'course_id' => course::get()->random()->id,
+            'course_id' => Course::get()->random()->id,
             'user_id' => User::get()->random()->id,
         ];
     }
