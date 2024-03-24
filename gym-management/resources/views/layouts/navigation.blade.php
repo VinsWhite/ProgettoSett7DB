@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-primary-subtle dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -22,7 +22,7 @@
                         {{ __('Activities') }}
                     </x-nav-link>
                     @if(Auth::user()->role === 'admin')
-                    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
+                    <x-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
                         {{ __('Reservations') }}
                     </x-nav-link>
                     @endif

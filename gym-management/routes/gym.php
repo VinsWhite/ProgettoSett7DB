@@ -7,4 +7,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/course', CourseController::class)->middleware('auth');
 Route::resource('/activity', ActivityController::class)->middleware('auth');
-Route::resource('/reservations', ReservationController::class)->middleware('auth');
+Route::resource('/reservation', ReservationController::class)->middleware('auth');

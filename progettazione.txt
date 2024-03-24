@@ -1,0 +1,41 @@
+In questo file è possibile trovare una spiegazione pressoché dettagliata del progetto.
+
+MODELLO CONCETTUALE
+Individuiamo 3 entità: Users, Courses, Activities
+
+Entità: Users
+id (PK)
+name (nome dell'utente)
+email (email dell'utente, unica)
+email_verified_at (timestamp per la verifica dell'email, opzionale)
+password (password dell'utente)
+role (ruolo dell'utente)
+rememberToken (token per la persistenza della sessione)
+created_at (timestamp di creazione)
+updated_at (timestamp di aggiornamento)
+
+Entità: Courses
+id (PK)
+name (nome del corso)
+description (descrizione del corso)
+capacity (capacità massima del corso)
+created_at (timestamp di creazione)
+updated_at (timestamp di aggiornamento)
+
+Entità: Activities
+id (PK)
+name (nome dell'attività)
+description (descrizione dell'attività)
+start_time (orario di inizio dell'attività)
+end_time (orario di fine dell'attività)
+course_id (chiave esterna che collega l'attività al corso)
+created_at (timestamp di creazione)
+updated_at (timestamp di aggiornamento)
+
+Tabella generata dalla relazione di courses con users
+id (PK)
+status (stato della prenotazione)
+course_id (chiave esterna che collega la prenotazione al corso)
+user_id (chiave esterna che collega la prenotazione all'utente)
+created_at (timestamp di creazione)
+updated_at (timestamp di aggiornamento)

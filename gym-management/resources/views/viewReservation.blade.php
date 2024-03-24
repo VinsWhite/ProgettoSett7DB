@@ -1,3 +1,4 @@
+{{-- Questa pagina sarà accessibile solo dall'amministratore --}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -6,7 +7,7 @@
     </x-slot>
 
     <main class="container mt-5 shadow p-3 bg-white">
-        <h2 class="h2">Accept, cancel or reject reservation!</h2>
+        <h2 class="h2">Accept or reject reservation!</h2>
         
         <table class="table">
             <thead>
@@ -24,6 +25,18 @@
                         <td>{{ $reservation->course->name }}</td>
                         <td>{{ $reservation->user->name }}</td>
                         <td>{{ $reservation->status }}</td>
+                        <td><form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="accept" value="{{ $reservation->id }}">
+                                <button type="submit" class="btn btn-primary">Accept</button>
+                            </form></td>
+                        <td><form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="reject" value="{{ $reservation->id }}">
+                                <button type="submit" class="btn btn-danger">Reject</button>
+                        </form></td>
                     </tr>
                 @endforeach
             </tbody>

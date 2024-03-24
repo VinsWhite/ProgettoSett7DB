@@ -76,7 +76,20 @@ class ReservationController extends Controller
      */
     public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
-        //
+        $reservation = Reservation::findOrFail($request->reservation_id);
+
+        // verifica quale pulsante è stato premuto e aggiorna lo stato di conseguenza
+        if ($request->has('accept')) {
+            $reservation->status = 'accepted';
+        } elseif ($request->has('reject')) {
+            $reservation->status = 'rejected';
+        } elseif($request->has('book_again')) {
+            $reservation->status = 'pending';
+        }
+
+        $reservation->save();
+
+        return redirect()->back()->with('success', 'Reservation status updated successfully.');
     }
 
     /**

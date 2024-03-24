@@ -8,7 +8,7 @@
     <main class="container mt-5 shadow p-3 bg-white">
         <h2 class="h2">Join us to one of our incredible course!</h2>
         @if($user_role === 'admin')
-            <a href="/personal/course/create" class="btn btn-success mt-3">Add new course</a>
+            <a href="/personal/course/create" class="btn btn-primary mt-3">Add new course</a>
         @endif
         <table class="table">
             <thead>
