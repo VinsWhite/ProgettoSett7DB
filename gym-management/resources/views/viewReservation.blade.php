@@ -18,6 +18,7 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
+            {{-- N.B. guarda file di testo "progettazione.txt" --}}
             <tbody>
                 @foreach($reservations as $reservation)
                     <tr>
@@ -25,18 +26,29 @@
                         <td>{{ $reservation->course->name }}</td>
                         <td>{{ $reservation->user->name }}</td>
                         <td>{{ $reservation->status }}</td>
-                        <td><form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
+                        <td>@if( $reservation->status == 'accepted' || $reservation->status == 'Accepted' )
+                                <button disabled type="submit" name="accept" class="btn btn-primary">Accept</button>
+                            @else
+                            <form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
                                 @csrf
                                 @method('PATCH')
-                                <input type="hidden" name="accept" value="{{ $reservation->id }}">
-                                <button type="submit" class="btn btn-primary">Accept</button>
-                            </form></td>
-                        <td><form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
+                                <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
+                                <button type="submit" name="accept" class="btn btn-primary">Accept</button>
+                            </form>
+                            @endif
+
+                        </td>
+                        <td>@if( $reservation->status == 'rejected' || $reservation->status == 'Rejected' )
+                            <button disabled type="submit" name="reject" class="btn btn-danger">Reject</button>
+                            @else
+                            <form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
                                 @csrf
                                 @method('PATCH')
-                                <input type="hidden" name="reject" value="{{ $reservation->id }}">
-                                <button type="submit" class="btn btn-danger">Reject</button>
-                        </form></td>
+                                <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
+                                <button type="submit" name="reject" class="btn btn-danger">Reject</button>
+                            </form>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

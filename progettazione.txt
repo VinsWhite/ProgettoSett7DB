@@ -1,4 +1,4 @@
-In questo file è possibile trovare una spiegazione pressoché dettagliata del progetto.
+In questo file è possibile trovare una spiegazione del progetto.
 
 MODELLO CONCETTUALE
 Individuiamo 3 entità: Users, Courses, Activities
@@ -39,3 +39,14 @@ course_id (chiave esterna che collega la prenotazione al corso)
 user_id (chiave esterna che collega la prenotazione all'utente)
 created_at (timestamp di creazione)
 updated_at (timestamp di aggiornamento)
+
+
+SPIEGAZIONE GENERALE 
+L'utente potrà visualizzare tutte le attività in una pagina dedicata. 
+Potrà prenotare dei corsi che richiederanno un controllo da parte di un admin.
+L'admin "ha potere" decisionale e potrà anche eseguire azioni normalmente non eseguibili da un utente normale come la creazione di nuovi corsi.
+
+PROBLEMI RISCONTRATI 
+Il progetto era pressoché semplice, ho riscontrato problemi solo in reservation.updated che mi 
+ha fatto perdere più tempo del previsto e quindi non sono riuscito a concentrarmi sul resto dovendomi dedicare
+ad altri progetti.

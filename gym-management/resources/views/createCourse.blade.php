@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    {{-- N.B. npm run dev per applicare lo stile dichiarato nel css" --}}
+
     <main class="container mt-5 shadow p-3 bg-white">
         <h2 class="h2">Create a new course!</h2>
         <a href="/personal/course"><i class="bi bi-arrow-left"></i></a>

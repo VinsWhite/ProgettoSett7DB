@@ -19,6 +19,7 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- N.B. guarda file di testo "progettazione.txt" --}}
                 <tr>
                     <th scope="row">1</th> 
                     <td>{{ $course->name }}</td>
@@ -38,15 +39,15 @@
                                 @break
                             @case($reservation->status == 'rejected' || $reservation->status == 'Rejected')
                                 <p>Your reservation is <span class="text-danger">rejected...</span></p>
-                                @break
-                            @case($reservation->status == 'cancelled' || $reservation->status == 'cancelled')
-                                <p>Your reservation is <span class="text-warning">cancelled...</span></p>
                                 <form method="POST" action="{{ route('reservation.update', ['reservation' => $reservation->id]) }}">
                                     @csrf
                                     @method('PATCH')
                                     <input type="hidden" name="book_again" value="{{ $reservation->id }}">
                                     <button type="submit" class="btn btn-primary">Book Now Again</button>
                                 </form>
+                                @break
+                            @case($reservation->status == 'accepted' || $reservation->status == 'Accepted')
+                                <p>Your reservation is <span class="text-primary">accepted!</span></p>
                                 @break
                             @endswitch
                         @endif
